@@ -1,0 +1,34 @@
+<div class="elevio-nav">
+  <div class="container">
+    <div class="row">
+      <div class="col col-sm-12">
+        <a href="/en-gb">
+          <img src="https://www.miinto-group.com/wp-content/uploads/2021/10/edge-miinto-logo-black-1.png" alt="logo" class="elevio-nav-brand">
+        </a>
+
+        <div class="nav-extra-links">
+          <a href="/en-gb/articles/91-kundeservice-bningstider" class="button-link-block b-navbar w-inline-block" style="margin-left:0">
+            <div style="margin-right:13px !important;"><img src="https://www.miinto.co.uk/static/graphics/help-center/contact-white.png" style="height:21px;"></div><div>Contact us</div>
+           
+          </a>
+          <a href="https://www.miinto.co.uk" class="nav-login hide-mobile-new">Continue shopping</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="search-container search-bg-color search-container-before">
+  <div class="container">
+    <div class="row">
+      <div class="col col-sm-12">
+        <h2>How can we help?</h2>
+      </div>
+    </div>
+  </div></div>
+  
+  <script>
+window.onload = function() {
+    window._elev.setLanguage('en-gb');
+};
+</script>
+
