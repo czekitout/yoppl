@@ -1,0 +1,41 @@
+!function(e,t,s,a,i,n,r,c){e[i]=e[i]||function(){(e[i].q=e[i].q||[]).push(arguments),e[i].handler&&e[i].handler(arguments)},e[i].l=1*new Date,e[i].wid="1a86a5a9-a138-4ef1-afcc-cc99ae0560fb",r=t.createElement("script"),c=t.getElementsByTagName("script")[0],r.async=1,r.setAttribute("charset","utf-8"),r.src="https://widget.dixa.io/assets/scripts/javascript/loader.js",c.parentNode.insertBefore(r,c)}(window,document,0,0,"_dixa")
+_dixa("api.showWidget", '{"show_widget":false, "show_contact_form":false}');
+function doHiddenDixaAction() {
+  window._elev.openArticle('77');
+}
+const DixaResizeObserver = new ResizeObserver(function(){checkWidgetStatus()});
+function doVisibleDixaAction() {
+  _dixa("api.setView", "conversation");
+  document.getElementById('dixa-iframe-wrapper').style.display = "block";
+  _elev.setSettings({hideLauncher: true});
+  setTimeout(function() {
+   DixaResizeObserver.observe(document.getElementById('dixa-widget-wrapper'));
+ }, 1000);
+}
+function checkWidgetStatus() {
+  if(document.getElementById('dixa-widget-wrapper').clientHeight < 150) {
+   _elev.setSettings({hideLauncher: false});
+    document.getElementById('dixa-iframe-wrapper').style.display = "none";
+    DixaResizeObserver.disconnect();
+  }
+}
+window._elev.events = {
+  moduleOpened: function(id) {
+    if(id == "3") { 
+      if(typeof _dixa.settings != "undefined") {
+        if(typeof _dixa.settings.show_widget != "undefined") {
+          if(_dixa.settings.show_widget)
+            doVisibleDixaAction();
+          else
+            doHiddenDixaAction();
+       }
+       else
+        doHiddenDixaAction();
+      }
+      else
+        doHiddenDixaAction();
+    }
+    else
+      console.log('Elevio module ' + id + ' clicked, but no action specified.');
+  }
+};
